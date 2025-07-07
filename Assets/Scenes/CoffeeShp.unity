@@ -181,8 +181,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u3010\u5343\u65E9 \u7231\u97F3\u3011"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4c69cfb5a43ca14488deea38f249b6ab, type: 2}
-  m_sharedMaterial: {fileID: 1055867889671186684, guid: 4c69cfb5a43ca14488deea38f249b6ab, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 72d4f9e6d6742f348b65b60d95807855, type: 2}
+  m_sharedMaterial: {fileID: -4188130342698725918, guid: 72d4f9e6d6742f348b65b60d95807855, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -628,8 +628,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "  \u6211\u8BA8\u538C\u6E29\u67D4\u7684\u5973\u5B69\u5B50\u3002\u6E29\u67D4\u7684\u5973\u5B69\u5B50\u5176\u5B9E\u5BF9\u6240\u6709\u4EBA\u90FD\u6E29\u67D4\uFF0C\u6211\u5374\u4F1A\u8BEF\u4EE5\u4E3A\u53EA\u5BF9\u6211\u6E29\u67D4\uFF0C\u7136\u540E\u5C31\u6CBE\u6CBE\u81EA\u559C\u5F97\u610F\u5FD8\u5F62\uFF0C\u6700\u540E\u95F9\u5F97\u4E0D\u6B22\u800C\u6563\uFF0C\u53CC\u65B9\u90FD\u53D7\u5230\u4F24\u5BB3\u3002\u2015\u2015\u6240\u4EE5\u6211\u624D\u8BA8\u538C\u6E29\u67D4\u7684\u5973\u5B69\u5B50\u3002"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4c69cfb5a43ca14488deea38f249b6ab, type: 2}
-  m_sharedMaterial: {fileID: 1055867889671186684, guid: 4c69cfb5a43ca14488deea38f249b6ab, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 72d4f9e6d6742f348b65b60d95807855, type: 2}
+  m_sharedMaterial: {fileID: -4188130342698725918, guid: 72d4f9e6d6742f348b65b60d95807855, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -659,7 +659,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
