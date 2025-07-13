@@ -144,6 +144,11 @@ public class DialogueManager : MonoBehaviour
         return null;
     }
 
+    public void BoxClick()
+    {
+        Advance();
+    }
+
 
     /*    //更新对话框的内容
     public void UpdateDialogue(Character character, string newContent)
