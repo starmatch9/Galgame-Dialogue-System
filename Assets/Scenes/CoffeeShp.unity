@@ -131,6 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4876903}
+  - component: {fileID: 4876904}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -153,6 +154,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4876904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4876902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae2232d796d0984181ad4b6262431e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataFile: {fileID: 4900000, guid: 3bfa9bae6fcf5b64a9c0fdd2777ca2a8, type: 3}
+  portrait: {fileID: 1786104742}
+  avatar: {fileID: 1311339511}
+  characterName: {fileID: 6918485}
+  content: {fileID: 1593299330}
+  characters:
+  - name: "\u661F\u661F\u706B\u67F4"
+    portrait: {fileID: 0}
+  - name: "\u5343\u65E9 \u7231\u97F3"
+    portrait: {fileID: 21300000, guid: 6c158a5fb3ae11b43914291f3bf83836, type: 3}
+  - name: "\u957F\u5D0E \u7D20\u4E16"
+    portrait: {fileID: 21300000, guid: 979b180fbc3ec7e46ac9caff63c9c19a, type: 3}
 --- !u!1 &6918483
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,7 +797,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &695017789
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1182,7 +1207,7 @@ GameObject:
   - component: {fileID: 1311339512}
   - component: {fileID: 1311339511}
   m_Layer: 5
-  m_Name: Photo
+  m_Name: Avatar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2139,5 +2164,5 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 1906317524}
   - {fileID: 2027809654}
-  - {fileID: 831577367}
   - {fileID: 4876903}
+  - {fileID: 831577367}
