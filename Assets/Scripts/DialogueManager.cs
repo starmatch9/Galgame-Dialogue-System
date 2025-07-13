@@ -34,6 +34,13 @@ public class DialogueManager : MonoBehaviour
     string[] rows;
     int dialogueIndex;
 
+    //分支选项
+    //为使用Instantiate方法，需要提供父对象和预制件游戏对象
+    public Transform parentGroup;
+    public GameObject optionPref;
+
+
+
     /*生命周期区*/
 
     void Awake()
@@ -72,8 +79,6 @@ public class DialogueManager : MonoBehaviour
             //在这里识别标志，防止转化非数字字符
             if (cells[1] == "W" && int.Parse(cells[0]) == dialogueIndex)
             {
-                Debug.Log(row);
-                Debug.Log(cells[2]);
                 UpdateW(FindCha(cells[2]), cells[3]);
                 dialogueIndex = int.Parse(cells[4]);
 
@@ -88,7 +93,17 @@ public class DialogueManager : MonoBehaviour
             }
             else if (cells[1] == "O" && int.Parse(cells[0]) == dialogueIndex)
             {
+                //选项成群出现，递归制作选项
+                parentGroup.gameObject.SetActive(true);
+                UpdateO(dialogueIndex);
 
+                break;
+            }
+            else if (cells[1] == "END" && int.Parse(cells[0]) == dialogueIndex)
+            {
+                Debug.Log("啊恶法大师傅");
+                //这里姑且放个退出，也可以是跳转到其他场景
+                Application.Quit();
                 break;
             }
         }
@@ -97,7 +112,6 @@ public class DialogueManager : MonoBehaviour
     //当前为人物发言时
     public void UpdateW(Character character, string newContent)
     {
-        Debug.Log(character.name);
         if (character.portrait == null)
         {
             portrait.enabled = false;
@@ -126,9 +140,37 @@ public class DialogueManager : MonoBehaviour
     }
 
     //当前为分支选项时
-    public void UpdateO()
+    public void UpdateO(int index)
     {
+        //递归
+        foreach (var row in rows)
+        {
+            //防止循环到最后导致IndexOutOfRangeException
+            if (row == "")
+            {
+                return;
+            }
+            string[] cells = row.Split(",");
+            if (cells[1] == "O" && int.Parse(cells[0]) == index)
+            {
+                GameObject option = Instantiate(optionPref, parentGroup);
+                option.GetComponentInChildren<TMP_Text>().text = cells[3];
+                option.GetComponent<Button>().onClick.AddListener(
+                    delegate { OptionJump(int.Parse(cells[4])); }
+                    );
 
+                UpdateO(index+1);
+                break;
+            }
+        }
+    }
+
+    //选项跳转
+    public void OptionJump(int target)
+    {
+        parentGroup.gameObject.SetActive(false);
+        dialogueIndex = target;
+        Advance();
     }
 
     //通过名字字符串寻找列表中对应人物对象
