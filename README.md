@@ -12,10 +12,19 @@
 
 ### 使用方法
 - **详情请查看公众号文章（其中视频为使用方法介绍）**
+https://mp.weixin.qq.com/s/lqdLDfCrJqfzdU17Uu9oXA
 
 ![我要继续肝！](/ReadmeImage/boqi.jpg)
 
 ### 『文本人物语音锐意制作中……』
+
+
+------------
+
+
+------------
+
+
 
 # StarMatch "Galgame Dialogue System"
 
@@ -30,3 +39,5 @@
 #### How to Use
 
 - For details, please refer to the official account article (the video included is a tutorial on usage).
+https://mp.weixin.qq.com/s/lqdLDfCrJqfzdU17Uu9oXA
+
