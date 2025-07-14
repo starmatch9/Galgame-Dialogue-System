@@ -24,6 +24,7 @@ public class DialogueManager : MonoBehaviour
     //代表对话内容的TMP文本组件
     public TMP_Text content;
 
+    [Header("出场人物列表")]
     //存放人物列表
     //（字典不支持检查器可视）
     //后续可以考虑在制表时加入“人物索引”的列
@@ -34,6 +35,7 @@ public class DialogueManager : MonoBehaviour
     string[] rows;
     int dialogueIndex;
 
+    [Header("分支选项父组件及按钮预制件")]
     //分支选项
     //为使用Instantiate方法，需要提供父对象和预制件游戏对象
     public Transform parentGroup;
@@ -101,7 +103,6 @@ public class DialogueManager : MonoBehaviour
             }
             else if (cells[1] == "END" && int.Parse(cells[0]) == dialogueIndex)
             {
-                Debug.Log("啊恶法大师傅");
                 //这里姑且放个退出，也可以是跳转到其他场景
                 Application.Quit();
                 break;
