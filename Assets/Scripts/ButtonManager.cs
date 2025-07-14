@@ -12,15 +12,13 @@ public class ButtonManager : MonoBehaviour
     public Image buttonImage;
     public Color runningColor;
     bool isAuto = false;
-    Coroutine nowCoroutine = null;
 
     public void ButtonAuto()
     {
-        //Debug.Log(nowCoroutine == null);
-        isAuto = true;
-        if (nowCoroutine == null)
+        isAuto = !isAuto;
+        if (isAuto)
         {
-            nowCoroutine = StartCoroutine(AutoPlay());
+            StartCoroutine(AutoPlay());
         }
     }
     IEnumerator AutoPlay()
@@ -28,7 +26,8 @@ public class ButtonManager : MonoBehaviour
         Color originalColor = buttonImage.color;
         buttonImage.color = runningColor;
         //分支选项出现时，也停止自动播放
-        while (isAuto)
+        bool isContinue = true;
+        while (isContinue)
         {
             //通过循环叠加时间从而
             float timeCal = 0;
@@ -36,20 +35,18 @@ public class ButtonManager : MonoBehaviour
             {
                 if (Input.GetMouseButtonDown(0) || !isAuto || dialogueManager.parentGroup.gameObject.activeSelf)
                 {
-                    //isAuto = false;
+                    isContinue = false;
                     break;
                 }
                 timeCal += Time.deltaTime;
                 yield return null;
             }
-            if (isAuto)
+            if (isContinue)
             {
                 dialogueManager.BoxClick();
             }
         }
         buttonImage.color = originalColor;
-        //协程结束时置空
-        nowCoroutine = null;
     }
 
     /*隐藏文本区*/
