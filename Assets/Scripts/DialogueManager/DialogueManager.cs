@@ -26,6 +26,10 @@ public class DialogueManager : MonoBehaviour
     //代表对话内容的TMP文本组件
     public TMP_Text content;
 
+    [Header("打字机效果设置")]
+    [Range(0,1)]public float intervalTime = 0.025f;
+    Coroutine typeTextCoroutine = null;
+
     [Header("出场人物列表")]
     //存放人物列表
     //（字典不支持检查器可视）
@@ -48,8 +52,10 @@ public class DialogueManager : MonoBehaviour
     //一个管理器对应一个DifferentSymbol
     DifferentSymbols df;
 
-    /*生命周期区*/
+    //维护观察者（列表）--目前只有一个，故不做列表先
+    AudioManager observer;
 
+    /*生命周期区*/
     void Awake()
     {
         //让文件中的文本按分隔符进行分隔，索引从零开始
@@ -70,6 +76,9 @@ public class DialogueManager : MonoBehaviour
 
         //初始化differentSymbols
         df = new DifferentSymbols(this);
+
+        //初始化（注册）观察者
+        observer = GetComponent<AudioManager>();
     }
 
     void Start()
@@ -89,9 +98,27 @@ public class DialogueManager : MonoBehaviour
     public void Advance()
     {
         DialogueLine line = dialogueLines[dialogueIndex];
+
+        //通知观察者
+        notify();
+
         df.DialogueLineAnalysis(line);
+
+        //将打字机效果附加在TMP_Text上面
+        ExecuteTypeText();
     }
 
+    /*通知观察者方法*/
+    //主题
+    void notify()
+    {
+        //如果是列表，需要遍历
+        observer.executeUpdate();
+    }
+
+    //
+    //发现（待尝试）：这样一来，似乎角色立绘的变化更适合使用观察者模式
+    //
 
     //通过名字字符串寻找列表中对应人物对象
     public Character FindCha(string name)
@@ -109,5 +136,30 @@ public class DialogueManager : MonoBehaviour
     public void BoxClick()
     {
         Advance();
+    }
+
+    //执行打字机效果
+    void ExecuteTypeText()
+    {
+        if (typeTextCoroutine != null)
+        {
+            StopCoroutine(typeTextCoroutine);
+            typeTextCoroutine = null;
+        }
+        typeTextCoroutine = StartCoroutine(TypeText());
+    }
+    //打字机效果
+    IEnumerator TypeText()
+    {
+        //刷新网格
+        content.ForceMeshUpdate();
+        int total = content.textInfo.characterCount;
+        int current = 0;
+        while (current <= total)
+        {
+            content.maxVisibleCharacters = current;
+            current++;
+            yield return new WaitForSeconds(intervalTime);
+        }
     }
 }
