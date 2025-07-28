@@ -50,23 +50,20 @@ public class UpdateW : DialogueUpdate
     {
         Upd(manager.FindCha(line.name), line.content, manager);
         manager.dialogueIndex = line.jump;
+        //将打字机效果附加在TMP_Text上面
+        manager.ExecuteTypeText();
     }
 
     void Upd(Character character, string newContent, DialogueManager manager)
     {
-        if (character.portrait == null)
+        if (!character.havePortrait)
         {
-            manager.portrait.enabled = false;
             manager.avatar.enabled = false;
         }
         else
         {
-            manager.portrait.enabled = true;
             manager.avatar.enabled = true;
         }
-
-        manager.portrait.sprite = character.portrait;
-        manager.avatar.sprite = character.portrait;
         manager.characterName.text = "【" + character.name + "】";
         manager.content.text = "  " + newContent;
     }
@@ -78,11 +75,12 @@ public class UpdateT : DialogueUpdate
     {
         Upd(line.content, manager);
         manager.dialogueIndex = line.jump;
+        //将打字机效果附加在TMP_Text上面
+        manager.ExecuteTypeText();
     }
 
     void Upd(string newContent, DialogueManager manager)
     {
-        manager.portrait.enabled = false;
         manager.avatar.enabled = false;
         manager.characterName.text = "";
         manager.content.text = "  " + newContent;

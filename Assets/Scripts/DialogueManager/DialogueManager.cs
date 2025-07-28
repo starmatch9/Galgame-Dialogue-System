@@ -52,8 +52,8 @@ public class DialogueManager : MonoBehaviour
     //一个管理器对应一个DifferentSymbol
     DifferentSymbols df;
 
-    //维护观察者（列表）--目前只有一个，故不做列表先
-    AudioManager observer;
+    //维护观察者列表
+    ObserverInterface[] observers;
 
     /*生命周期区*/
     void Awake()
@@ -78,7 +78,7 @@ public class DialogueManager : MonoBehaviour
         df = new DifferentSymbols(this);
 
         //初始化（注册）观察者
-        observer = GetComponent<AudioManager>();
+        observers = GetComponents<ObserverInterface>();
     }
 
     void Start()
@@ -103,9 +103,6 @@ public class DialogueManager : MonoBehaviour
         notify();
 
         df.DialogueLineAnalysis(line);
-
-        //将打字机效果附加在TMP_Text上面
-        ExecuteTypeText();
     }
 
     /*通知观察者方法*/
@@ -113,7 +110,10 @@ public class DialogueManager : MonoBehaviour
     void notify()
     {
         //如果是列表，需要遍历
-        observer.executeUpdate();
+        foreach (ObserverInterface observer in observers)
+        {
+            observer.executeUpdate();
+        }
     }
 
     //
@@ -139,7 +139,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     //执行打字机效果
-    void ExecuteTypeText()
+    public void ExecuteTypeText()
     {
         if (typeTextCoroutine != null)
         {

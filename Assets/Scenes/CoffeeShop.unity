@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 4876905}
   - component: {fileID: 4876906}
   - component: {fileID: 4876907}
+  - component: {fileID: 4876908}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -169,18 +170,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae2232d796d0984181ad4b6262431e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataFile: {fileID: 4900000, guid: 3bfa9bae6fcf5b64a9c0fdd2777ca2a8, type: 3}
+  dataFile: {fileID: 4900000, guid: 39eed923bf1bbf044909e7a31963164f, type: 3}
   portrait: {fileID: 1786104742}
   avatar: {fileID: 1311339511}
   characterName: {fileID: 6918485}
   content: {fileID: 1593299330}
+  intervalTime: 0.025
   characters:
-  - name: "\u661F\u661F\u706B\u67F4"
-    portrait: {fileID: 0}
-  - name: "\u5343\u65E9 \u7231\u97F3"
-    portrait: {fileID: 21300000, guid: 6c158a5fb3ae11b43914291f3bf83836, type: 3}
-  - name: "\u957F\u5D0E \u7D20\u4E16"
-    portrait: {fileID: 21300000, guid: 979b180fbc3ec7e46ac9caff63c9c19a, type: 3}
+  - name: sensei
+    havePortrait: 0
+  - name: "\u4F18\u9999"
+    havePortrait: 1
   dialogueIndex: 0
   parentGroup: {fileID: 1952118900}
   optionPref: {fileID: 894560973487461764, guid: 00103591f0bd6e14fb8c3974d030e7ac, type: 3}
@@ -309,16 +309,144 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioDialogues:
+  - dialogueLineIndex: 0
+    clip: {fileID: 0}
+  - dialogueLineIndex: 1
+    clip: {fileID: 8300000, guid: 28e714f4c9d5cfc4b8c7bf780c943143, type: 3}
+  - dialogueLineIndex: 2
+    clip: {fileID: 8300000, guid: 181d68e9b1e41604193ffe011580d4bd, type: 3}
+  - dialogueLineIndex: 3
+    clip: {fileID: 8300000, guid: 76d30258d0557974c9cf913cf9aac2ad, type: 3}
   - dialogueLineIndex: 4
-    clip: {fileID: 8300000, guid: b9a9d0d4531c8f94ab364200f010e861, type: 3}
+    clip: {fileID: 0}
   - dialogueLineIndex: 5
-    clip: {fileID: 8300000, guid: fe231828d3249774f96f0f72092f4387, type: 3}
+    clip: {fileID: 0}
   - dialogueLineIndex: 6
-    clip: {fileID: 8300000, guid: db2342586a595454aa5193d0d3b2adab, type: 3}
+    clip: {fileID: 8300000, guid: 69fa89c17762d744eb7a3ab72830076a, type: 3}
+  - dialogueLineIndex: 7
+    clip: {fileID: 8300000, guid: bde97b5e63b45a34ab86ff64b9b1ecc9, type: 3}
+  - dialogueLineIndex: 8
+    clip: {fileID: 0}
+  - dialogueLineIndex: 9
+    clip: {fileID: 0}
+  - dialogueLineIndex: 10
+    clip: {fileID: 0}
+  - dialogueLineIndex: 11
+    clip: {fileID: 0}
+  - dialogueLineIndex: 12
+    clip: {fileID: 8300000, guid: 80c59859163c14d46998d08581065d9c, type: 3}
   - dialogueLineIndex: 13
-    clip: {fileID: 8300000, guid: 7ef98b94462e00941ac82a5f9cbc4650, type: 3}
+    clip: {fileID: 8300000, guid: 3b554e68ba9e36b46bd4e484fa31b7c9, type: 3}
+  - dialogueLineIndex: 14
+    clip: {fileID: 0}
+  - dialogueLineIndex: 15
+    clip: {fileID: 0}
+  - dialogueLineIndex: 16
+    clip: {fileID: 0}
   - dialogueLineIndex: 17
-    clip: {fileID: 8300000, guid: c861d7f262714d44bb2d445554a8792e, type: 3}
+    clip: {fileID: 0}
+  - dialogueLineIndex: 18
+    clip: {fileID: 0}
+  - dialogueLineIndex: 19
+    clip: {fileID: 0}
+  - dialogueLineIndex: 20
+    clip: {fileID: 0}
+  - dialogueLineIndex: 21
+    clip: {fileID: 0}
+  - dialogueLineIndex: 22
+    clip: {fileID: 8300000, guid: 669c72a3af421714093728e602077dad, type: 3}
+  - dialogueLineIndex: 23
+    clip: {fileID: 0}
+  - dialogueLineIndex: 24
+    clip: {fileID: 8300000, guid: 2dbad9d3cb9ae02448b2f667876a8623, type: 3}
+--- !u!114 &4876908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4876902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 850d5145c1df31c4f8df8c6a2f991194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tachieDialogues:
+  - dialogueLineIndex: 0
+    tachie: {fileID: 0}
+    isShadow: 0
+  - dialogueLineIndex: 1
+    tachie: {fileID: 21300000, guid: fff440b3cdf16d047a535fdda232cbb1, type: 3}
+    isShadow: 0
+  - dialogueLineIndex: 2
+    tachie: {fileID: 21300000, guid: 18502385bda7a7a488f7daa3e8771bd5, type: 3}
+    isShadow: 0
+  - dialogueLineIndex: 3
+    tachie: {fileID: 21300000, guid: 18502385bda7a7a488f7daa3e8771bd5, type: 3}
+    isShadow: 0
+  - dialogueLineIndex: 4
+    tachie: {fileID: 21300000, guid: 18502385bda7a7a488f7daa3e8771bd5, type: 3}
+    isShadow: 0
+  - dialogueLineIndex: 5
+    tachie: {fileID: 21300000, guid: 18502385bda7a7a488f7daa3e8771bd5, type: 3}
+    isShadow: 0
+  - dialogueLineIndex: 6
+    tachie: {fileID: 21300000, guid: 0caf12c4669409046beeed1d7711a82d, type: 3}
+    isShadow: 0
+  - dialogueLineIndex: 7
+    tachie: {fileID: 21300000, guid: b1c9d7e2faca64348ae05ac038fac18d, type: 3}
+    isShadow: 0
+  - dialogueLineIndex: 8
+    tachie: {fileID: 21300000, guid: b1c9d7e2faca64348ae05ac038fac18d, type: 3}
+    isShadow: 0
+  - dialogueLineIndex: 9
+    tachie: {fileID: 21300000, guid: b1c9d7e2faca64348ae05ac038fac18d, type: 3}
+    isShadow: 0
+  - dialogueLineIndex: 10
+    tachie: {fileID: 21300000, guid: b1c9d7e2faca64348ae05ac038fac18d, type: 3}
+    isShadow: 0
+  - dialogueLineIndex: 11
+    tachie: {fileID: 21300000, guid: b1c9d7e2faca64348ae05ac038fac18d, type: 3}
+    isShadow: 0
+  - dialogueLineIndex: 12
+    tachie: {fileID: 21300000, guid: aecc295af703d3e4dbb6ec81b8a1e2ec, type: 3}
+    isShadow: 0
+  - dialogueLineIndex: 13
+    tachie: {fileID: 21300000, guid: a378b14648b7df44492ab65ad011db5c, type: 3}
+    isShadow: 0
+  - dialogueLineIndex: 14
+    tachie: {fileID: 21300000, guid: a378b14648b7df44492ab65ad011db5c, type: 3}
+    isShadow: 0
+  - dialogueLineIndex: 15
+    tachie: {fileID: 0}
+    isShadow: 0
+  - dialogueLineIndex: 16
+    tachie: {fileID: 21300000, guid: a378b14648b7df44492ab65ad011db5c, type: 3}
+    isShadow: 0
+  - dialogueLineIndex: 17
+    tachie: {fileID: 21300000, guid: a378b14648b7df44492ab65ad011db5c, type: 3}
+    isShadow: 0
+  - dialogueLineIndex: 18
+    tachie: {fileID: 21300000, guid: a378b14648b7df44492ab65ad011db5c, type: 3}
+    isShadow: 1
+  - dialogueLineIndex: 19
+    tachie: {fileID: 21300000, guid: a378b14648b7df44492ab65ad011db5c, type: 3}
+    isShadow: 1
+  - dialogueLineIndex: 20
+    tachie: {fileID: 0}
+    isShadow: 0
+  - dialogueLineIndex: 21
+    tachie: {fileID: 0}
+    isShadow: 0
+  - dialogueLineIndex: 22
+    tachie: {fileID: 21300000, guid: c445a3658e4ccef41aa21acf7d0dab9f, type: 3}
+    isShadow: 0
+  - dialogueLineIndex: 23
+    tachie: {fileID: 21300000, guid: c445a3658e4ccef41aa21acf7d0dab9f, type: 3}
+    isShadow: 0
+  - dialogueLineIndex: 24
+    tachie: {fileID: 21300000, guid: aecc295af703d3e4dbb6ec81b8a1e2ec, type: 3}
+    isShadow: 0
 --- !u!1 &6918483
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,7 +504,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u3010\u5343\u65E9 \u7231\u97F3\u3011"
+  m_text: "\u3010\u4F18\u9999\u3011"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 72d4f9e6d6742f348b65b60d95807855, type: 2}
   m_sharedMaterial: {fileID: -4188130342698725918, guid: 72d4f9e6d6742f348b65b60d95807855, type: 2}
@@ -1420,15 +1548,15 @@ RectTransform:
   m_GameObject: {fileID: 1311339509}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.85, y: 0.85, z: 0.85}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 695017789}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -646, y: -93}
-  m_SizeDelta: {x: 1105.92, y: 1105.92}
+  m_AnchoredPosition: {x: -626, y: -589}
+  m_SizeDelta: {x: 879.12, y: 2211.84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1311339511
 MonoBehaviour:
@@ -1450,7 +1578,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6c158a5fb3ae11b43914291f3bf83836, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2ff21e364a35a5146b693bbffb880bb2, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1883,15 +2011,15 @@ RectTransform:
   m_GameObject: {fileID: 1748251526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.39, y: 1.39, z: 1.39}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2027809654}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_AnchoredPosition: {x: 0, y: 127}
+  m_SizeDelta: {x: 1382.4, y: 972}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1748251528
 MonoBehaviour:
@@ -1913,7 +2041,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fca3b1d8d6280244aa55f2b3ece4bca4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6713cf66fe5fec74caa342c4bc2c9c4a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1997,15 +2125,15 @@ RectTransform:
   m_GameObject: {fileID: 1786104740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2027809654}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 9}
-  m_SizeDelta: {x: 1105.92, y: 1105.92}
+  m_AnchoredPosition: {x: 72, y: -354}
+  m_SizeDelta: {x: 879.12, y: 2211.84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1786104742
 MonoBehaviour:
@@ -2027,7 +2155,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6c158a5fb3ae11b43914291f3bf83836, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2ff21e364a35a5146b693bbffb880bb2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

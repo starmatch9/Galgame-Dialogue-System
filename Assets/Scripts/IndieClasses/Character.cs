@@ -7,9 +7,8 @@ public class Character
     //人物名称
     public string name = null;
 
-    //人物立绘
-    //（后续可以更换为立绘列表，制作差分效果，可能需要制表时加入“立绘索引”列）
-    public Sprite portrait = null;
+    //人物立绘是否存在
+    public bool havePortrait = false;
 
     //人物好感度
     //（暂不需要）

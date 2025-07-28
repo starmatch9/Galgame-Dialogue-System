@@ -7,6 +7,6 @@ public class AudioDialogue
     public int dialogueLineIndex = 0;
 
     //“Ù∆µ∆¨∂Œ
-    public AudioClip clip;
+    public AudioClip clip = null;
 
 }
