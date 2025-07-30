@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
-    public DialogueManager dialogueManager;
-
     /*自动播放区*/
     [Header("自动播放按钮")]
     public Image buttonImage;
@@ -23,6 +23,8 @@ public class ButtonManager : MonoBehaviour
     }
     IEnumerator AutoPlay()
     {
+        DialogueManager dialogueManager = GetComponent<DialogueManager>();
+
         Color originalColor = buttonImage.color;
         buttonImage.color = runningColor;
         //分支选项出现时，也停止自动播放
@@ -71,4 +73,55 @@ public class ButtonManager : MonoBehaviour
         }
         DialogueBox.SetActive(true);
     }
+
+    /*对话历史区*/
+    [Header("显示历史对话按钮")]
+    public GameObject historyPanel;
+    public Transform historyItems;
+    public GameObject itemPref;
+
+    List<HistoryItem> itemsList = new List<HistoryItem>();
+
+    public void ButtonHistory()
+    {
+        historyPanel.SetActive(true);
+
+        foreach (HistoryItem item in itemsList)
+        {
+            if (item != null)
+            {
+                GameObject newItem = Instantiate(itemPref, historyItems);
+                TMP_Text historyLineName = newItem.transform.Find("Name").GetComponent<TMP_Text>();
+                TMP_Text historyLineContent = newItem.transform.Find("Content").GetComponent<TMP_Text>();
+
+                historyLineName.text = item.name;
+                historyLineContent.text = item.content;
+            }
+        }
+
+    }
+    public void historyUpdate(DialogueLine line)
+    {
+
+
+        HistoryItem historyItem = new HistoryItem();
+
+        if(line.symbol == "O")
+        {
+            historyItem.name = "（选　项）";
+        }
+        else if(line.symbol == "W")
+        {
+            historyItem.name = "【" + line.name + "】";
+        }
+        else if(line.symbol == "T")
+        {
+            historyItem.name = "";
+        }
+        historyItem.content = line.content;
+
+        itemsList.Add(historyItem);
+    }
+
+
 }

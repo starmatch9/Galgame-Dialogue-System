@@ -55,6 +55,11 @@ public class DialogueManager : MonoBehaviour
     //维护观察者列表
     ObserverInterface[] observers;
 
+    //连接一个按钮管理器（对话历史的更新需要其方法）
+    [HideInInspector]
+    public ButtonManager buttonManager;
+
+
     /*生命周期区*/
     void Awake()
     {
@@ -79,6 +84,9 @@ public class DialogueManager : MonoBehaviour
 
         //初始化（注册）观察者
         observers = GetComponents<ObserverInterface>();
+
+        //初始化按钮管理器
+        buttonManager = GetComponent<ButtonManager>();
     }
 
     void Start()

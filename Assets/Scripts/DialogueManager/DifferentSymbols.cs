@@ -50,6 +50,10 @@ public class UpdateW : DialogueUpdate
     {
         Upd(manager.FindCha(line.name), line.content, manager);
         manager.dialogueIndex = line.jump;
+
+        //更新对话历史（对话历史的可操作区域与按钮管理器绑定）
+        manager.buttonManager.historyUpdate(line);
+
         //将打字机效果附加在TMP_Text上面
         manager.ExecuteTypeText();
     }
@@ -75,6 +79,10 @@ public class UpdateT : DialogueUpdate
     {
         Upd(line.content, manager);
         manager.dialogueIndex = line.jump;
+
+        //更新对话历史
+        manager.buttonManager.historyUpdate(line);
+
         //将打字机效果附加在TMP_Text上面
         manager.ExecuteTypeText();
     }
@@ -106,7 +114,12 @@ public class UpdateO : DialogueUpdate
         GameObject option = UnityEngine.Object.Instantiate(manager.optionPref, manager.parentGroup);
         option.GetComponentInChildren<TMP_Text>().text = line.content;
         option.GetComponent<Button>().onClick.AddListener(
-            delegate { OptionJump(line.jump, manager); }
+            delegate { 
+                OptionJump(line.jump, manager);
+                
+                //更新对话历史
+                manager.buttonManager.historyUpdate(line);
+            }
             );
         Upd(index + 1, manager);
     }
