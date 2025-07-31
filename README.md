@@ -5,8 +5,14 @@
 ![界面预览](/ReadmeImage/2.png)
 
 ###  :pushpin: 使用方法
-- **详情请查看公众号文章（其中视频为使用方法介绍）**
-https://mp.weixin.qq.com/s/lqdLDfCrJqfzdU17Uu9oXA
+- **该对话系统的配置说明（bilibili）：**
+https://www.bilibili.com/video/BV1tV81zKEfr/
+
+- **详细的制作过程请查看公众号文章（其中视频为使用方法介绍）**
+https://mp.weixin.qq.com/s/DZMYRNw6v_aJy0CThtJTlA
+
+- 本文所涉及任何网络资源均不用做商业用途，仅供学习与交流使用。这些资源在制作该系统时的使用十分灵活，可以根据需要自行寻找资源（具体的资源出处可在公众号图文中查看）。
+
 
 ###  :mag: 现有功能
 1. 人物对话推进
