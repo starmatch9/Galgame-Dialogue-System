@@ -1,4 +1,8 @@
-# 星星火柴的『galgame对话系统』
+# 星星火柴の『galgame对话系统』
+###  :smile: 欢迎使用！！！
+- 欢迎大家来体验这个“星星火柴のgalgame对话系统”！通过在Unity编辑器中导入包，即可根据公众号文章中视频的介绍来配置自己的galgame！目前这个系统只有基础的功能，后续我会持续加入各种有用的附加效果，请各位多多关注！
+![界面预览](/ReadmeImage/2.png)
+
 ###  :pushpin: 使用方法
 - **详情请查看公众号文章（其中视频为使用方法介绍）**
 https://mp.weixin.qq.com/s/lqdLDfCrJqfzdU17Uu9oXA
@@ -25,6 +29,9 @@ https://mp.weixin.qq.com/s/lqdLDfCrJqfzdU17Uu9oXA
 
 
 ------------
+### :smile: Welcome to use!!
+
+Welcome everyone to experience this "Star Matchstick Chart galgame Dialogue System"! By importing packages into the Unity editor, you can configure your own galgame according to the introduction in the video of the official account article! At present, this system only has basic functions. In the future, I will continue to add various useful additional effects. Please pay more attention!
 
 ### :pushpin: How to Use
 For details, please check the official account article (the video is a usage guide)
