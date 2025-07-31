@@ -136,6 +136,11 @@ public class ButtonManager : MonoBehaviour
         {
             ButtonAuto();
         }
+        //更新之前销毁所有子物体
+        foreach (Transform child in historyItems)
+        {
+            Destroy(child.gameObject);
+        }
 
         historyPanel.SetActive(true);
 

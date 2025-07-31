@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6783039879250756338
+--- !u!1 &6170969141137326996
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1456284725419957502}
-  - component: {fileID: 4143571686781465326}
-  - component: {fileID: 7057051039334859368}
-  - component: {fileID: 8576793372394407661}
-  - component: {fileID: 9041336702448194134}
-  - component: {fileID: 3190664130761455188}
+  - component: {fileID: 4091678872484926077}
+  - component: {fileID: 5294504361383513842}
+  - component: {fileID: 3941658386977047930}
+  - component: {fileID: 5375015290197595795}
+  - component: {fileID: 51675283081858076}
+  - component: {fileID: 2179181479967325848}
   m_Layer: 0
-  m_Name: ManagerPref_v0.3.0
+  m_Name: Manager_v1.0.0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1456284725419957502
+--- !u!4 &4091678872484926077
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6783039879250756338}
+  m_GameObject: {fileID: 6170969141137326996}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 863.84717, y: 374.88013, z: 5.7488976}
@@ -36,55 +36,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4143571686781465326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6783039879250756338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ae2232d796d0984181ad4b6262431e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dataFile: {fileID: 4900000, guid: 39eed923bf1bbf044909e7a31963164f, type: 3}
-  portrait: {fileID: 0}
-  avatar: {fileID: 0}
-  characterName: {fileID: 0}
-  content: {fileID: 0}
-  intervalTime: 0.025
-  characters:
-  - name: sensei
-    havePortrait: 0
-  - name: "\u4F18\u9999"
-    havePortrait: 1
-  dialogueIndex: 0
-  parentGroup: {fileID: 0}
-  optionPref: {fileID: 894560973487461764, guid: 00103591f0bd6e14fb8c3974d030e7ac, type: 3}
---- !u!114 &7057051039334859368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6783039879250756338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0ec5cb372d56c34eb8d93c521b51794, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueManager: {fileID: 4143571686781465326}
-  buttonImage: {fileID: 0}
-  runningColor: {r: 1, g: 0, b: 0.89020586, a: 1}
-  DialogueBox: {fileID: 0}
---- !u!82 &8576793372394407661
+--- !u!82 &5294504361383513842
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6783039879250756338}
+  m_GameObject: {fileID: 6170969141137326996}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -174,13 +132,60 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &9041336702448194134
+--- !u!114 &3941658386977047930
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6783039879250756338}
+  m_GameObject: {fileID: 6170969141137326996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae2232d796d0984181ad4b6262431e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataFile: {fileID: 4900000, guid: 39eed923bf1bbf044909e7a31963164f, type: 3}
+  portrait: {fileID: 0}
+  avatar: {fileID: 0}
+  characterName: {fileID: 0}
+  content: {fileID: 0}
+  intervalTime: 0.025
+  characters:
+  - name: sensei
+    havePortrait: 0
+  - name: "\u4F18\u9999"
+    havePortrait: 1
+  dialogueIndex: 0
+  parentGroup: {fileID: 0}
+  optionPref: {fileID: 894560973487461764, guid: 00103591f0bd6e14fb8c3974d030e7ac, type: 3}
+  buttonManager: {fileID: 0}
+--- !u!114 &5375015290197595795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6170969141137326996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ec5cb372d56c34eb8d93c521b51794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonImage: {fileID: 0}
+  runningColor: {r: 1, g: 0, b: 0.89020586, a: 1}
+  isAuto: 0
+  DialogueBox: {fileID: 0}
+  historyPanel: {fileID: 0}
+  historyItems: {fileID: 0}
+  itemPref: {fileID: 2234035270887191998, guid: 6cf1343008d406f479b19e28e25e611e, type: 3}
+  settingPanel: {fileID: 0}
+--- !u!114 &51675283081858076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6170969141137326996}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d55180b383a662f4183734551804e2a6, type: 3}
@@ -237,13 +242,14 @@ MonoBehaviour:
     clip: {fileID: 0}
   - dialogueLineIndex: 24
     clip: {fileID: 8300000, guid: 2dbad9d3cb9ae02448b2f667876a8623, type: 3}
---- !u!114 &3190664130761455188
+  currentClip: {fileID: 0}
+--- !u!114 &2179181479967325848
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6783039879250756338}
+  m_GameObject: {fileID: 6170969141137326996}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 850d5145c1df31c4f8df8c6a2f991194, type: 3}
