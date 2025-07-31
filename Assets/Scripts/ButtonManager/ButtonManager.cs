@@ -11,45 +11,87 @@ public class ButtonManager : MonoBehaviour
     [Header("自动播放按钮")]
     public Image buttonImage;
     public Color runningColor;
-    bool isAuto = false;
+    Color currentColor;
+    //用于控制协程
+    [HideInInspector]
+    public bool isAuto = false;
+    Coroutine autoPlayCoroutine = null;
+    AudioSource audioSource = null;
+    //目前只有播放按钮用到了对话管理器所以暂时放在这里
+    DialogueManager dialogueManager;
+    //需要获取音频管理器中的音频列表
+    AudioManager audioManager;
 
     public void ButtonAuto()
     {
         isAuto = !isAuto;
         if (isAuto)
         {
-            StartCoroutine(AutoPlay());
+            autoStart();
+            buttonImage.color = runningColor;
+        }
+        else
+        {
+            autoEnd();
+            buttonImage.color = currentColor;
         }
     }
     IEnumerator AutoPlay()
     {
-        DialogueManager dialogueManager = GetComponent<DialogueManager>();
-
-        Color originalColor = buttonImage.color;
-        buttonImage.color = runningColor;
-        //分支选项出现时，也停止自动播放
-        bool isContinue = true;
-        while (isContinue)
+        while (true)
         {
-            //通过循环叠加时间从而
-            float timeCal = 0;
-            while (timeCal < 3f)
+            if (audioSource.clip != null)
             {
-                if (Input.GetMouseButtonDown(0) || !isAuto || dialogueManager.parentGroup.gameObject.activeSelf)
+                //事件回调，2018+版本用，这个可以在播放结束后跳出
+                yield return new WaitWhile(() => audioSource.isPlaying);
+            }
+
+            //如果这段对话的音频是空的，就按打字机协程来
+            if (audioManager.currentClip == null)
+            {
+                //如果协程在运行，就在代码块里循环
+
+                float timeAll = 0f; 
+                while (dialogueManager.typeTextCoroutine != null)
                 {
-                    isContinue = false;
-                    break;
+                    yield return null;
+                    timeAll += Time.deltaTime;
                 }
-                timeCal += Time.deltaTime;
-                yield return null;
+                //打字机结束后，时停时长
+                //Debug.Log(timeAll * 6);
+                //让阅读时间和字的长度大致成正比
+                yield return new WaitForSeconds(timeAll * 6);
             }
-            if (isContinue)
-            {
-                dialogueManager.BoxClick();
-            }
+
+            //音频播放结束后等待时间的长度
+            yield return new WaitForSeconds(1f);
+
+            dialogueManager.BoxClick();
         }
-        buttonImage.color = originalColor;
     }
+    
+    //协程强制开始时的动作
+    public void autoStart()
+    {
+        if (autoPlayCoroutine != null)
+        {
+            StopCoroutine(autoPlayCoroutine);
+            autoPlayCoroutine = null;
+        }
+        //在开始协程前重新清空
+        autoPlayCoroutine = StartCoroutine(AutoPlay());
+    }
+    //这个函数可以用来暂时关闭，再调用autoStart即可重新开始（利用isAuto还是true）
+    //要想彻底关闭，可以直接调用ButtonAuto
+    public void autoEnd()
+    {
+        if (autoPlayCoroutine != null)
+        {
+            StopCoroutine(autoPlayCoroutine);
+            autoPlayCoroutine = null;
+        }
+    }
+
 
     /*隐藏文本区*/
     [Header("隐藏文本按钮")]
@@ -57,6 +99,11 @@ public class ButtonManager : MonoBehaviour
 
     public void ButtonHide()
     {
+        //自动结束播放
+        if (isAuto)
+        {
+            ButtonAuto();
+        }
         StartCoroutine(HideTextBox());
     }
     IEnumerator HideTextBox()
@@ -84,6 +131,12 @@ public class ButtonManager : MonoBehaviour
 
     public void ButtonHistory()
     {
+        //自动结束播放
+        if (isAuto)
+        {
+            ButtonAuto();
+        }
+
         historyPanel.SetActive(true);
 
         foreach (HistoryItem item in itemsList)
@@ -123,5 +176,24 @@ public class ButtonManager : MonoBehaviour
         itemsList.Add(historyItem);
     }
 
+    private void Start()
+    {
+        currentColor = buttonImage.color;
+        dialogueManager = GetComponent<DialogueManager>();
+        audioManager = GetComponent<AudioManager>();
+        audioSource = GetComponent<AudioSource>();
+    }
 
+    [Header("设置按钮")]
+    public GameObject settingPanel;
+
+    public void ButtonSetting()
+    {
+        //自动结束播放
+        if (isAuto)
+        {
+            ButtonAuto();
+        }
+        settingPanel.SetActive(true);
+    }
 }

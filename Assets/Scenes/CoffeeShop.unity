@@ -131,9 +131,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4876903}
+  - component: {fileID: 4876906}
   - component: {fileID: 4876904}
   - component: {fileID: 4876905}
-  - component: {fileID: 4876906}
   - component: {fileID: 4876907}
   - component: {fileID: 4876908}
   m_Layer: 0
@@ -199,10 +199,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 375415349}
   runningColor: {r: 1, g: 0, b: 0.89020586, a: 1}
+  isAuto: 0
   DialogueBox: {fileID: 695017788}
   historyPanel: {fileID: 1612390894}
   historyItems: {fileID: 1070557839}
   itemPref: {fileID: 2234035270887191998, guid: 6cf1343008d406f479b19e28e25e611e, type: 3}
+  settingPanel: {fileID: 1861128801}
 --- !u!82 &4876906
 AudioSource:
   m_ObjectHideFlags: 0
@@ -362,6 +364,7 @@ MonoBehaviour:
     clip: {fileID: 0}
   - dialogueLineIndex: 24
     clip: {fileID: 8300000, guid: 2dbad9d3cb9ae02448b2f667876a8623, type: 3}
+  currentClip: {fileID: 0}
 --- !u!114 &4876908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1344,10 +1347,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1861128801}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 4876905}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: ButtonSetting
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3238,7 +3241,7 @@ GameObject:
   - component: {fileID: 1251146750}
   - component: {fileID: 1251146749}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Cancel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4880,7 +4883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1861128802
 RectTransform:
   m_ObjectHideFlags: 0

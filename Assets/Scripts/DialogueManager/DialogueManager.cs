@@ -28,7 +28,8 @@ public class DialogueManager : MonoBehaviour
 
     [Header("打字机效果设置")]
     [Range(0,1)]public float intervalTime = 0.025f;
-    Coroutine typeTextCoroutine = null;
+    [HideInInspector]
+    public Coroutine typeTextCoroutine = null;
 
     [Header("出场人物列表")]
     //存放人物列表
@@ -169,5 +170,7 @@ public class DialogueManager : MonoBehaviour
             current++;
             yield return new WaitForSeconds(intervalTime);
         }
+        //置空协程
+        typeTextCoroutine = null;
     }
 }

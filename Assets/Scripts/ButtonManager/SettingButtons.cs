@@ -19,6 +19,20 @@ public class SettingButtons : MonoBehaviour
 
     private void Awake()
     {
+        if (Screen.fullScreen)
+        {
+            currentDisplay.text = "全  屏";
+        }
+        else
+        {
+            currentDisplay.text = "窗  口";
+        }
+
+        if(Screen.height == 1440 || Screen.height == 1080 || Screen.height == 720)
+        {
+            currentResolution.text = Screen.height * 16 / 9 + "*" + Screen.height;
+        }
+
         //初始化分辨率列表
         resolutions.Add("1280*720");
         resolutions.Add("1920*1080");

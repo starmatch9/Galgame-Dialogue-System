@@ -105,6 +105,11 @@ public class UpdateO : DialogueUpdate
 
     void Upd(int index, DialogueManager manager)
     {
+        //如果处于自动播放，停下
+        if (manager.buttonManager.isAuto)
+        {
+            manager.buttonManager.autoEnd();
+        }
         DialogueLine line = manager.dialogueLines[index];
         if (line.symbol != "O")
         {
@@ -114,11 +119,17 @@ public class UpdateO : DialogueUpdate
         GameObject option = UnityEngine.Object.Instantiate(manager.optionPref, manager.parentGroup);
         option.GetComponentInChildren<TMP_Text>().text = line.content;
         option.GetComponent<Button>().onClick.AddListener(
-            delegate { 
-                OptionJump(line.jump, manager);
-                
+            delegate {
                 //更新对话历史
                 manager.buttonManager.historyUpdate(line);
+
+                //如果还处于自动播放，继续
+                if (manager.buttonManager.isAuto)
+                {
+                    manager.buttonManager.autoStart();
+                }
+
+                OptionJump(line.jump, manager);
             }
             );
         Upd(index + 1, manager);

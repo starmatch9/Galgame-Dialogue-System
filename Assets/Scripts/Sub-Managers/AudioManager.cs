@@ -14,6 +14,10 @@ public class AudioManager : MonoBehaviour, ObserverInterface
     [Header("对话音频列表")]
     public List<AudioDialogue> audioDialogues;
 
+    //用来记录当前对话的clip是不是空
+    [HideInInspector]
+    public AudioClip currentClip = null;
+
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -24,15 +28,24 @@ public class AudioManager : MonoBehaviour, ObserverInterface
     {
         if(FindAud(dialogueManager.dialogueIndex) != null)
         {
+            //更新当前clip
+            currentClip = FindAud(dialogueManager.dialogueIndex).clip;
+
             audioSource.clip = FindAud(dialogueManager.dialogueIndex).clip;
             audioSource.Play();
         }
+        else
+        {
+            //更新当前clip
+            currentClip = null;
+        }
+
     }
 
 
     //通过对话索引寻找列表中对应音频剪辑
     //注意：之后可尝试扩展的DialogueLine类，每个类会根据用户在管理器中的选择而自动加入列表，考虑通过OnValidate方法实现！！！！！！！！！！！！！
-    AudioDialogue FindAud(int index)
+    public AudioDialogue FindAud(int index)
     {
         foreach (AudioDialogue audioDialogue in audioDialogues)
         {
